@@ -184,6 +184,54 @@
             const [logs, setLogs] = useState(() => loadData('tca_logs', [
                 { id: 1, action: 'System Initialized successfully.', user: 'System', time: new Date().toLocaleString(), type: 'info' }
             ]));
+			// --- DATABASE FILE SYNC LOGIC ---
+            const [dbHandle, setDbHandle] = useState(null);
+
+            // File connect karne ka function
+            const connectDatabase = async () => {
+                try {
+                    const handle = await window.showSaveFilePicker({
+                        suggestedName: 'TCAdb.json',
+                        types: [{ description: 'Database JSON', accept: {'application/json': ['.json']} }]
+                    });
+                    setDbHandle(handle);
+                    alert("Database Connected! Ab har 1 minute baad TCAdb.json auto-update hogi.");
+                    logActivity("Connected to physical TCAdb.json database file.", "success");
+                } catch (error) {
+                    console.error("Database connection cancelled", error);
+                }
+            };
+
+            // Har 1 minute baad automatically file mein save karna
+            useEffect(() => {
+                if (!dbHandle) return; // Agar file connect nahi hui toh ruk jao
+                
+                const interval = setInterval(async () => {
+                    const fullDatabase = {
+                        settings: academySettings,
+                        users: users,
+                        students: students,
+                        subjects: subjects,
+                        mcqBank: mcqBank,
+                        tests: tests,
+                        testResults: testResults,
+                        transactions: transactions,
+                        logs: logs,
+                        lastSync: new Date().toLocaleString()
+                    };
+                    
+                    try {
+                        const writable = await dbHandle.createWritable();
+                        await writable.write(JSON.stringify(fullDatabase, null, 2));
+                        await writable.close();
+                        console.log("Background Auto-save complete!");
+                    } catch (e) {
+                        console.error("Auto-save failed - File open in another app?", e);
+                    }
+                }, 60000); // 60000 ms = 1 Minute
+                
+                return () => clearInterval(interval);
+            }, [dbHandle, academySettings, users, students, subjects, mcqBank, tests, testResults, transactions, logs]);
 
             // --- LICENSING STATE ---
             const [isLicensed, setIsLicensed] = useState(() => {
@@ -625,7 +673,13 @@
                                 <p className="text-xs text-slate-500 font-semibold mt-0.5">Welcome back, <strong className="text-slate-800">{currentUser.name}</strong> • Username: @{currentUser.username}</p>
                             </div>
                             <div className="flex items-center space-x-3 text-xs text-slate-400 font-bold font-mono">
-                                {/* Real browser PWA installation action */}
+                                {/* Database Connect Button */}
+                                {currentUser.role === 'super_admin' && (
+                                    <button onClick={connectDatabase} className={`px-3 py-1.5 rounded-lg flex items-center font-sans tracking-normal shadow transition-all mr-3 text-white ${dbHandle ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-rose-600 hover:bg-rose-700'}`}>
+                                        <Database size={14} className="mr-1.5" /> {dbHandle ? 'DB Synced' : 'Connect DB'}
+                                    </button>
+                                )}
+								{/* Real browser PWA installation action */}
                                 {isAppInstallable && (
                                     <button onClick={triggerPwaInstallation} className="bg-emerald-600 text-white px-3 py-1.5 rounded-lg flex items-center font-sans tracking-normal hover:bg-emerald-700 shadow transition-all mr-3">
                                         <Download size={14} className="mr-1.5" /> Install TCA App
