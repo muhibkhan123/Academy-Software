@@ -87,6 +87,7 @@
         const Award = (p) => <IconWrapper {...p}><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></IconWrapper>;
         const Shield = (p) => <IconWrapper {...p}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></IconWrapper>;
         const Briefcase = (p) => <IconWrapper {...p}><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></IconWrapper>;
+        const Database = (p) => <IconWrapper {...p}><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></IconWrapper>;
 
         // --- MAIN APP COMPONENT ---
         const App = () => {
@@ -184,6 +185,7 @@
             const [logs, setLogs] = useState(() => loadData('tca_logs', [
                 { id: 1, action: 'System Initialized successfully.', user: 'System', time: new Date().toLocaleString(), type: 'info' }
             ]));
+
 			// --- DATABASE FILE SYNC LOGIC ---
             const [dbHandle, setDbHandle] = useState(null);
 
@@ -2524,6 +2526,7 @@
                 e.target.value = null; // reset file input
             };
 
+<!-- ... existing code ... -->
             const exportMcqBank = () => {
                 const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(mcqBank, null, 2));
                 const a = document.createElement('a');
