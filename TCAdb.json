@@ -1,0 +1,302 @@
+{
+  "settings": {
+    "name": "The Chargh Academy",
+    "tagline": "English Language & Computer Education Center",
+    "address": "Main Commercial Area, Bannu, KP",
+    "email": "info@charghacademy.edu",
+    "mobile": "+92 300 1234567",
+    "logo": "https://via.placeholder.com/150/1e3a8a/ffffff?text=TCA"
+  },
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123",
+      "role": "super_admin",
+      "name": "System Administrator",
+      "email": "admin@tca.edu",
+      "permissions": {
+        "viewRevenue": true,
+        "studentsRead": true,
+        "studentsWrite": true,
+        "studentsDelete": true,
+        "feesRead": true,
+        "feesWrite": true,
+        "assessmentsRead": true,
+        "assessmentsWrite": true
+      }
+    },
+    {
+      "id": 2,
+      "username": "teacher",
+      "password": "123",
+      "role": "teacher",
+      "name": "John Doe",
+      "email": "john@tca.edu",
+      "category": "Computer Science",
+      "permissions": {
+        "viewRevenue": false,
+        "studentsRead": true,
+        "studentsWrite": true,
+        "studentsDelete": false,
+        "feesRead": false,
+        "feesWrite": false,
+        "assessmentsRead": true,
+        "assessmentsWrite": true
+      }
+    },
+    {
+      "id": 1780661682180,
+      "username": "std_1001",
+      "password": "123",
+      "role": "student",
+      "name": "muhib",
+      "studentId": 1001
+    },
+    {
+      "id": 1780661752594,
+      "username": "std_1002",
+      "password": "123",
+      "role": "student",
+      "name": "latif",
+      "studentId": 1002
+    }
+  ],
+  "students": [
+    {
+      "id": 1001,
+      "name": "muhib",
+      "fname": "ali",
+      "phone": "03139242996",
+      "gender": "Male",
+      "category": "Computer Science",
+      "duration": "3 Months",
+      "totalFee": "3000",
+      "discount": "1500",
+      "paid": "1000",
+      "status": "Active",
+      "enrollDate": "2026-06-05"
+    },
+    {
+      "id": 1002,
+      "name": "latif",
+      "fname": "laif",
+      "phone": "03493249328",
+      "gender": "Male",
+      "category": "Computer Science",
+      "duration": "3 Months",
+      "totalFee": "3000",
+      "discount": "300",
+      "paid": "2500",
+      "status": "Active",
+      "enrollDate": "2026-06-05"
+    }
+  ],
+  "subjects": [
+    "Trading Masterclass",
+    "Computer Science",
+    "English Language",
+    "General Subject / Other"
+  ],
+  "mcqBank": [
+    {
+      "id": 1,
+      "subject": "Computer Science",
+      "q": "What does RAM stand for?",
+      "options": [
+        "Read Access Memory",
+        "Random Access Memory",
+        "Run Active Memory",
+        "Random Active Memory"
+      ],
+      "correct": 1
+    },
+    {
+      "id": 2,
+      "subject": "Computer Science",
+      "q": "Which of the following is an input device?",
+      "options": [
+        "Monitor",
+        "Printer",
+        "Keyboard",
+        "Speaker"
+      ],
+      "correct": 2
+    },
+    {
+      "id": 3,
+      "subject": "English Language",
+      "q": "Which of these is a correct synonym of \"Generous\"?",
+      "options": [
+        "Selfish",
+        "Greedy",
+        "Benevolent",
+        "Stingy"
+      ],
+      "correct": 2
+    },
+    {
+      "id": 4,
+      "subject": "English Language",
+      "q": "What is the past tense of \"Go\"?",
+      "options": [
+        "Went",
+        "Gone",
+        "Going",
+        "Goes"
+      ],
+      "correct": 0
+    },
+    {
+      "id": 5,
+      "subject": "Trading Masterclass",
+      "q": "What is a candlestick chart used for in trading?",
+      "options": [
+        "To track temperatures",
+        "To display price movements over time",
+        "To see candle volumes",
+        "To trade real candles"
+      ],
+      "correct": 1
+    }
+  ],
+  "tests": [],
+  "testResults": [],
+  "transactions": [],
+  "logs": [
+    {
+      "id": 1780661765306,
+      "action": "Connected to physical TCAdb.json database file.",
+      "user": "admin",
+      "time": "05/06/2026, 17:16:05",
+      "type": "success"
+    },
+    {
+      "id": 1780661752594,
+      "action": "Enrolled new student: latif. Portal Account Created (User: std_1002)",
+      "user": "admin",
+      "time": "05/06/2026, 17:15:52",
+      "type": "success"
+    },
+    {
+      "id": 1780661682180,
+      "action": "Enrolled new student: muhib. Portal Account Created (User: std_1001)",
+      "user": "admin",
+      "time": "05/06/2026, 17:14:42",
+      "type": "success"
+    },
+    {
+      "id": 1780661569726,
+      "action": "Connected to physical TCAdb.json database file.",
+      "user": "admin",
+      "time": "05/06/2026, 17:12:49",
+      "type": "success"
+    },
+    {
+      "id": 1780661535847,
+      "action": "Software application package successfully installed as Desktop/Mobile PWA Standalone Software.",
+      "user": "admin",
+      "time": "05/06/2026, 17:12:15",
+      "type": "success"
+    },
+    {
+      "id": 1780661373991,
+      "action": "Connected to physical TCAdb.json database file.",
+      "user": "admin",
+      "time": "05/06/2026, 17:09:33",
+      "type": "success"
+    },
+    {
+      "id": 1780661155863,
+      "action": "Connected to physical TCAdb.json database file.",
+      "user": "admin",
+      "time": "05/06/2026, 17:05:55",
+      "type": "success"
+    },
+    {
+      "id": 1780655982715,
+      "action": "Deleted Assessment ID: 1",
+      "user": "admin",
+      "time": "05/06/2026, 15:39:42",
+      "type": "error"
+    },
+    {
+      "id": 1780655977024,
+      "action": "Deleted ledger transaction entry: \"May 2026 Power Bill\"",
+      "user": "admin",
+      "time": "05/06/2026, 15:39:37",
+      "type": "error"
+    },
+    {
+      "id": 1780655973644,
+      "action": "Deleted ledger transaction entry: \"Monthly rent for the main academic branch\"",
+      "user": "admin",
+      "time": "05/06/2026, 15:39:33",
+      "type": "error"
+    },
+    {
+      "id": 1780655970920,
+      "action": "Deleted ledger transaction entry: \"Fee payment from student Sarah Williams (Reg: #1003)\"",
+      "user": "admin",
+      "time": "05/06/2026, 15:39:30",
+      "type": "error"
+    },
+    {
+      "id": 1780655967951,
+      "action": "Deleted ledger transaction entry: \"Fee payment from student Michael Johnson (Reg: #1002)\"",
+      "user": "admin",
+      "time": "05/06/2026, 15:39:27",
+      "type": "error"
+    },
+    {
+      "id": 1780655964652,
+      "action": "Deleted ledger transaction entry: \"Fee payment from student Alice Smith (Reg: #1001)\"",
+      "user": "admin",
+      "time": "05/06/2026, 15:39:24",
+      "type": "error"
+    },
+    {
+      "id": 1780655955495,
+      "action": "Permanently deleted student record: Sarah Williams (ID: 1003)",
+      "user": "admin",
+      "time": "05/06/2026, 15:39:15",
+      "type": "error"
+    },
+    {
+      "id": 1780655951467,
+      "action": "Permanently deleted student record: Michael Johnson (ID: 1002)",
+      "user": "admin",
+      "time": "05/06/2026, 15:39:11",
+      "type": "error"
+    },
+    {
+      "id": 1780655948428,
+      "action": "Permanently deleted student record: Alice Smith (ID: 1001)",
+      "user": "admin",
+      "time": "05/06/2026, 15:39:08",
+      "type": "error"
+    },
+    {
+      "id": 1780655934536,
+      "action": "User logged into the system.",
+      "user": "admin",
+      "time": "05/06/2026, 15:38:54",
+      "type": "success"
+    },
+    {
+      "id": 1780655913894,
+      "action": "Software successfully unlocked on this computer with valid Licence Key.",
+      "user": "Licence Manager",
+      "time": "05/06/2026, 15:38:33",
+      "type": "success"
+    },
+    {
+      "id": 1,
+      "action": "System Initialized successfully.",
+      "user": "System",
+      "time": "05/06/2026, 15:35:26",
+      "type": "info"
+    }
+  ],
+  "lastSync": "05/06/2026, 18:10:05"
+}
