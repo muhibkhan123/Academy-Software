@@ -2525,8 +2525,6 @@
                 reader.readAsText(file);
                 e.target.value = null; // reset file input
             };
-
-<!-- ... existing code ... -->
             const exportMcqBank = () => {
                 const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(mcqBank, null, 2));
                 const a = document.createElement('a');
